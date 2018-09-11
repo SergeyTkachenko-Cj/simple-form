@@ -28,14 +28,11 @@ class App extends Component {
     }
     
     handleInput = e => {
-        // console.log(e.target.value);
-        const x = e.target.value;
+        const x = e.target.value;      
         e.target.type === "radio" ? 
-        this.setState(prev => { 
-            console.log(prev.state.x);
-            return {[e.target.value] : !prev.state.x} 
-            }) : 
-        this.setState({[e.target.name]: e.target.value});
+        this.setState({male: false, female: false}, 
+                      () => this.setState(prev => ({[x]: !prev[x]}))) : 
+        this.setState({[e.target.name]: x});
     }
     
     render() {
@@ -46,10 +43,10 @@ class App extends Component {
                     <input value={this.state.last} name="last" type="text" placeholder="Last Name" onChange={this.handleInput} /><br />
                     <input value={this.state.age} name="age" type="number" placeholder="Age" onChange={this.handleInput} /><br />
                     
-                    <input checked={this.state.male} value="male" name="gender" type="radio" id="r1" onChange={this.handleInput} />
+                    <input value="male" name="gender" type="radio" id="r1" onChange={this.handleInput} />
                     <label htmlFor="r1"> M</label>
                     <br />
-                    <input checked={this.state.female} value="female" name="gender" type="radio" id="r2" onChange={this.handleInput} />
+                    <input value="female" name="gender" type="radio" id="r2" onChange={this.handleInput} />
                     <label htmlFor="r1"> F</label>
                     <br />
                     
@@ -65,9 +62,9 @@ class App extends Component {
                 </form>
                 <hr />
                 <h2>Entered information:</h2>
-                <p>Your name: {/* First and last name here */}</p>
-                <p>Your age: {/* Age here */}</p>
-                <p>Your gender: {/* Gender here */}</p>
+                <p>Your name: {this.state.first +' '+ this.state.last}</p>
+                <p>Your age: {this.state.age}</p>
+                <p>Your gender: {this.state.female +' '+ this.state.female}</p>
                 <p>Your destination: {/* Destination here */}</p>
                 <p>
                     Your dietary restrictions: 
