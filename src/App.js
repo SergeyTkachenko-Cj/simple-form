@@ -26,9 +26,9 @@ class App extends Component {
     render() {
         return (
             <main>
-                <form>
+                {/* <form action="https://mailthis.to/tka4inni@gmail.com" method="POST">
                     <input 
-                        value={this.state.first} 
+                        value={this.state.your_name} 
                         name="first" 
                         type="text" 
                         placeholder="First Name" 
@@ -118,9 +118,47 @@ class App extends Component {
                     />
                     <label>Mushrooms</label>
                     <br />
-                    
-                    <button>Submit</button>
+
+                    <input type="submit" value="Submit" />
+                </form> */}
+
+                <div className="form-style-10">
+                <h1>Sign Up Now!<span>Sign up and tell us what you think of the site!</span></h1>
+                <form action="https://mailthis.to/tka4inni@gmail.com" method="POST">
+                    <div className="section"><span>1</span>First Name & Address</div>
+                    <div className="inner-wrap">
+                        <label>Your Full Name 
+                            <input 
+                                value={this.state.your_name} 
+                                name="first" 
+                                type="text" 
+                                placeholder="First Name" 
+                                onChange={this.handleInput} 
+                            />
+                        </label>
+                        <label>Address <textarea name="field2"></textarea></label>
+                    </div>
+
+                    <div className="section"><span>2</span>Email & Phone</div>
+                    <div className="inner-wrap">
+                        <label>Email Address <input type="email" name="field3" /></label>
+                        <label>Phone Number <input type="text" name="field4" /></label>
+                    </div>
+
+                    <div className="section"><span>3</span>Passwords</div>
+                    <div className="inner-wrap">
+                        <label>Password <input type="password" name="field5" /></label>
+                        <label>Confirm Password <input type="password" name="field6" /></label>
+                    </div>
+                    <div className="button-section">
+                        <input type="submit" name="Sign Up" />
+                        <span className="privacy-policy">
+                            <input type="checkbox" name="field7" />You agree to our Terms and Policy. 
+                        </span>
+                    </div>
                 </form>
+                </div>
+                    
                 <hr />
                 <h2>Entered information:</h2>
                 <p>Your name: {this.state.first.toUpperCase() +' '+ this.state.last.toUpperCase()}</p>
